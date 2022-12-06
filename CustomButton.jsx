@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
 
     buttonText :{
         color : '#0A0908',
-        fontFamily : 'Arial', //couldn't find the Lato font we agreed, so just left it standard for now
+        fontFamily : 'Arial', //couldn't find the Lato font we agreed on, so just left it standard for now
         alignItems : 'center',
     }
 })
