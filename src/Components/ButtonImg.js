@@ -6,6 +6,7 @@ const ButtonImg = () =>{
     return(
         <View>
             <TouchableOpacity style={styles.buttonWrapper}>
+            {/* the below fires twice upon load */}
                 <View onPress={console.log("click action")}>
                     <Image source={REACT_LOGO} />
                     <Text style={styles.buttonSubtext}>React Workshop</Text>
@@ -23,11 +24,12 @@ const ButtonImg = () =>{
 const styles = StyleSheet.create({
     buttonWrapper: {
         padding: 16,
-        marginTop: 16,
+        marginTop: 20,
         borderColor: '#bbb',
         backgroundColor: '#D9D9D9',
         borderWidth: 1,
-        borderRadius: 10
+        borderRadius: 10,
+        maxWidth: "50%"
     },
     buttonSubtext: {
         fontFamily: 'Arial',
@@ -41,3 +43,4 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     }
 })
+export default ButtonImg

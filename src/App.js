@@ -1,7 +1,15 @@
 import React from 'react';
 import {View} from 'react-native';
+import ButtonImg from './Components/ButtonImg'
+import {DiscordView} from './Components/DiscordView'
 
 const App = () => {
-  return <View>{/* Pass main component here */}</View>;
+  return(
+    <View>
+      {/* <ButtonImg /> */}
+      <DiscordView />
+    </View>
+  )
+  
 };
 export default App;
