@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-database.js"></script>
+
+        <h1>Add Resources to Database</h1>
+
+        <div>
+            <label for="Title">Title</label>
+            <input type="text" id="Title" name="Title" placeholder="Title">
+            <br>
+            <br>
+            <label for="link">Link</label>
+            <input type="text" id="link" name="link" placeholder="Link / URL">
+            <br>
+            <br>
+            <button id="submit"> Submit </button>
+        </div>
+        
+
+    </body>
+
+    <script>
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "firebase/app";
+        import {getDatabase, ref, set} from "https://console.firebase.google.com/u/0/project/lcs-app-1c836/database/lcs-app-1c836-default-rtdb/data/~2F";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+        document.getElementById("Submit").onclick = WriteData();
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAPce_Z30RIQocJueXZgfukry9aYJPx1Kw",
+            authDomain: "lcs-app-1c836.firebaseapp.com",
+            databaseURL: "https://lcs-app-1c836-default-rtdb.firebaseio.com",
+            projectId: "lcs-app-1c836",
+            storageBucket: "lcs-app-1c836.appspot.com",
+            messagingSenderId: "543160638961",
+            appId: "1:543160638961:web:584e42ed71976a34ff3850",
+        };
+
+        // Initialize Firebase
+        //const app = initializeApp(firebaseConfig);
+        firebase.initializeApp(firebaseConfig);
+
+        //const db = getDatabase();
+
+        function WriteData() {
+            const db = getDatabase();
+            set(ref(db, 'Users/'), {
+                Title : document.getElementById("Title").value,
+                URL : document.getElementById("URL").value
+            });
+            /*firebase.database().ref("User/").set({
+                Title : document.getElementById("Title").value,
+                URL : document.getElementById("URL").value
+            });*/
+        }
+
+
+    </script>
+
+    <style>
+        input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+
+        font-family :'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size : 14px;
+        }
+
+        button[id=submit]{
+            background-color: #1a479b;
+            width : 5%;
+            color : white;
+            padding : 10px;
+            margin: 2px 0;
+            border: none;
+            border-radius : 4px;
+            cursor : pointer;
+            text-align : center;
+            box-shadow: 0 2px #999;
+
+        }
+
+        button[id=submit]:hover{
+            background-color: #2d5aae;
+        }
+
+        button[id=submit]:active{
+            box-shadow: 0 2px #666;
+            transform: translateY(2px);
+            background-color: #2d5aae;
+        }
+
+        div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+        }
+
+        label {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 20px;
+        }
+
+        h1{
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 40px;
+        }
+
+    </style>
+</html>
