@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+
+        <h1>Add Resources to Database</h1>
+
+        <div>
+            <label for="Title">Title</label>
+            <input type="text" id="enterTitle" name="Title" placeholder="Title">
+            <br>
+            <br>
+            <label for="link">Link</label>
+            <input type="text" id="enterURL" name="URL" placeholder="Link / URL">
+            <br>
+            <br>
+            <button id="submit"> Submit </button>
+        </div>
+        
+
+    </body>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCLymljbeWfECwSBF8F4g5HZYyoxaQUAJ8",
+            authDomain: "lcs-app-5128f.firebaseapp.com",
+            databaseURL: "https://lcs-app-5128f-default-rtdb.firebaseio.com",
+            projectId: "lcs-app-5128f",
+            storageBucket: "lcs-app-5128f.appspot.com",
+            messagingSenderId: "157694404033",
+            appId: "1:157694404033:web:3846d9feb9efd3abbcbb40"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+
+        import {getDatabase, set, ref} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+
+        const db = getDatabase();
+
+        var enterTitle = document.querySelector("#enterTitle");
+        var enterURL = document.querySelector("#enterURL");
+
+        var submitBtn = document.querySelector("#submit");
+
+        function SubmitData(){
+            set(ref(db, "Resources/" + enterTitle.value), {
+                Title : enterTitle.value,
+                URL : enterURL.value
+            })
+            .then(()=> {
+                alert("Data Uploaded")
+            })
+            .catch((error)=> {
+                alert(error)
+            });
+
+        }
+
+        submitBtn.addEventListener('click', SubmitData);
+    </script>
+
+    <style>
+        input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+
+        font-family :'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size : 14px;
+        }
+
+        button[id=submit]{
+            background-color: #1a479b;
+            width : 5%;
+            color : white;
+            padding : 10px;
+            margin: 2px 0;
+            border: none;
+            border-radius : 4px;
+            cursor : pointer;
+            text-align : center;
+            box-shadow: 0 2px #999;
+
+        }
+
+        button[id=submit]:hover{
+            background-color: #2d5aae;
+        }
+
+        button[id=submit]:active{
+            box-shadow: 0 2px #666;
+            transform: translateY(2px);
+            background-color: #2d5aae;
+        }
+
+        div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+        }
+
+        label {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 20px;
+        }
+
+        h1{
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 40px;
+        }
+
+    </style>
+</html>
