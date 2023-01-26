@@ -10,17 +10,19 @@ const YoutubeView = () => {
         const response = await fetch('https://www.googleapis.com/youtube/v3/search?key=AIzaSyD4oMs-4ffbQm_ZIb9gonEr2aBuT2ARPng&channelId=UCF9Pp-ZO-dJhYg5Ig-LcD2Q&part=snippet,id&type=video&order=date&maxResults=1');
         const data = await response.json();
 
-        if (!data || !data.items) return;
+        if (!data || !data.items || !data.items[0] || !data.items[0].snippet) {
+          console.log('Error: Invalid data received from the API');
+          return;
+        }
 
         // Extract the video ID from the response
         const video = data.items[0];
         const videoID = video.id.videoId;
         setVideoID(videoID);
       } catch (error) {
-        console.log(error);
+        console.log('Error: ' + error);
       }
-    };
-
+    }
     fetchVideoID();
   }, []);
 
