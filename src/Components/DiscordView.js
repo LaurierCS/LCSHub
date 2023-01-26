@@ -1,3 +1,5 @@
+// THIS COMPONENT IS TO BE DELETED
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Text } from 'react-native';
