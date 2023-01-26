@@ -10,6 +10,7 @@ const YoutubeView = () => {
         const response = await fetch('https://www.googleapis.com/youtube/v3/search?key=AIzaSyD4oMs-4ffbQm_ZIb9gonEr2aBuT2ARPng&channelId=UCF9Pp-ZO-dJhYg5Ig-LcD2Q&part=snippet,id&type=video&order=date&maxResults=1');
         const data = await response.json();
 
+        //updated error messaging
         if (!data || !data.items || !data.items[0] || !data.items[0].snippet) {
           console.log('Error: Invalid data received from the API');
           return;
