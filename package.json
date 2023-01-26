@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "axios": "^1.2.2",
-    "expo": "^47.0.12",
+    "expo": "^47.0.13",
     "react": "18.1.0",
     "react-native": "0.70.5",
     "react-native-webview": "11.23.1"
