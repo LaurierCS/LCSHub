@@ -2,35 +2,38 @@ import React, { useState, useEffect } from 'react';
 import { WebView } from 'react-native-webview';
 
 const YoutubeView = () => {
-  const [videoID, setVideoID] = useState('');
+  const [videoId, setVideoId] = useState('');
+  const API_KEY = 'AIzaSyD4oMs-4ffbQm_ZIb9gonEr2aBuT2ARPng';
+  const CHANNEL_ID = 'UCx5kLv_MO-yhjIIqcCLEMFA';
 
-  useEffect(() => {
-    const fetchVideoID = async () => {
-      try {
-        const response = await fetch('https://www.googleapis.com/youtube/v3/search?key=AIzaSyD4oMs-4ffbQm_ZIb9gonEr2aBuT2ARPng&channelId=UCF9Pp-ZO-dJhYg5Ig-LcD2Q&part=snippet,id&type=video&order=date&maxResults=1');
-        const data = await response.json();
+  // useEffect(() => {
+  //     try {
+  //       console.log('about to fetch')
+  //       const response = fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=1`);
+  //       console.log(response)
+  //       const data = response.json();
+  //       setVideoId(data.items[0].id.videoId);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  // }, []);
+  const baseURL =
+  'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.youtube.com%2Ffeeds%2Fvideos.xml%3Fchannel_id%3DUCx5kLv_MO-yhjIIqcCLEMFA';
 
-        if (!data || !data.items) return;
+useEffect(() => {
+    try {
+      const data = fetch(
+        'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.youtube.com%2Ffeeds%2Fvideos.xml%3Fchannel_id%3DUCx5kLv_MO-yhjIIqcCLEMFA',
+      ).then((response = response.json()));
+      console.log(data)
+    } catch (error) {
+      console.log(error);
+    }
 
-        // Extract the video ID from the response
-        const video = data.items[0];
-        const videoID = video.id.videoId;
-        setVideoID(videoID);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchVideoID();
-  }, []);
-
-  if (!videoID) {
-    return null;
-  }
-
+}, []);
   return (
     <WebView
-      source={{ uri: `https://www.youtube.com/embed/${videoID}` }}
+      source={{ uri: `https://www.youtube.com/embed/${videoId}` }}
       style={{ flex: 1 }}
     />
   );
