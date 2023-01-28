@@ -25,7 +25,8 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%', 
     height: '100%',
-    backgroundColor: '#101c25'
+    marginTop: 20,
+    backgroundColor: '#0A0908'
   },
   youtubeWrapper:{
     flex: 1,
@@ -33,9 +34,9 @@ const styles = StyleSheet.create({
     padding: 16,
     marginTop: 20,
     borderColor: 'black',
-    backgroundColor: '#608b97',
+    backgroundColor: '#90DBF4',
     borderWidth: 1,
-    borderRadius: 10,
+    borderRadius: 13,
   },
   twitchWrapper:{
     flex: 1,
@@ -43,9 +44,9 @@ const styles = StyleSheet.create({
     padding: 16,
     marginTop: 20,
     borderColor: 'black',
-    backgroundColor: '#608b97',
+    backgroundColor: '#90DBF4',
     borderWidth: 1,
-    borderRadius: 10,
+    borderRadius: 12,
   }
 })
 
