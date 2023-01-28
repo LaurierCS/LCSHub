@@ -25,8 +25,8 @@ const styles = StyleSheet.create({
     buttonWrapper: {
         padding: 16,
         marginTop: 20,
-        borderColor: '#bbb',
-        backgroundColor: '#D9D9D9',
+        borderColor: 'black',
+        backgroundColor: '#608b97',
         borderWidth: 1,
         borderRadius: 10,
         maxWidth: "50%"
