@@ -8,7 +8,7 @@ const ButtonImg = () =>{
             <TouchableOpacity style={styles.buttonWrapper}>
             {/* the below fires twice upon load */}
                 <View onPress={console.log("click action")}>
-                    <Image source={REACT_LOGO} />
+                    <Image source={REACT_LOGO} style={styles.img}/>
                     <Text style={styles.buttonSubtext}>React Workshop</Text>
                     <View style={styles.readWrapper}>
                         <Image source={MENU_ICON} style={styles.menuIcon}/>
@@ -23,21 +23,24 @@ const ButtonImg = () =>{
 
 const styles = StyleSheet.create({
     buttonWrapper: {
-        padding: 16,
+        padding: 12,
         marginTop: 20,
-        borderColor: '#bbb',
-        backgroundColor: '#D9D9D9',
+        borderColor: 'black',
+        backgroundColor: '#90DBF4',
         borderWidth: 1,
-        borderRadius: 10,
+        borderRadius: 12,
         maxWidth: "50%"
+    },
+    img: {
+        marginLeft: 15
     },
     buttonSubtext: {
         fontFamily: 'Arial',
         paddingTop: 10,
-        paddingLeft: 1
+        paddingLeft: 5
     },
     menuIcon: {
-        marginTop: 10
+        marginTop: 10,
     },
     readWrapper: {
         flexDirection: 'row'
