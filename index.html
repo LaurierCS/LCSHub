@@ -6,7 +6,7 @@
     </head>
     <body>
 
-        <h1>Add Resources to Database</h1>
+        <h1>Add Resources to LCS Database</h1>
 
         <div>
             <label for="Title">Title</label>
@@ -15,6 +15,10 @@
             <br>
             <label for="link">Link</label>
             <input type="text" id="enterURL" name="URL" placeholder="Link / URL">
+            <br>
+            <br>
+            <label for="Image">Image</label>
+            <input type="text" id="enterIMG" name="Image" placeholder="Image URL">
             <br>
             <br>
             <button id="submit"> Submit </button>
@@ -49,13 +53,15 @@
 
         var enterTitle = document.querySelector("#enterTitle");
         var enterURL = document.querySelector("#enterURL");
+        var enterIMG = document.querySelector("#enterIMG")
 
         var submitBtn = document.querySelector("#submit");
 
         function SubmitData(){
             set(ref(db, "Resources/" + enterTitle.value), {
                 Title : enterTitle.value,
-                URL : enterURL.value
+                URL : enterURL.value,
+                IMG : enterIMG.value
             })
             .then(()=> {
                 alert("Data Uploaded")
@@ -72,7 +78,7 @@
     <style>
         input[type=text], select {
         width: 100%;
-        padding: 12px 20px;
+        padding: 10px 20px;
         margin: 8px 0;
         display: inline-block;
         border: 1px solid #ccc;
@@ -85,7 +91,7 @@
 
         button[id=submit]{
             background-color: #1a479b;
-            width : 5%;
+            width : 10%;
             color : white;
             padding : 10px;
             margin: 2px 0;
@@ -114,6 +120,7 @@
         }
 
         label {
+            padding : 10px;
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             font-size: 20px;
         }
