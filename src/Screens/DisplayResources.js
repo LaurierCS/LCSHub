@@ -9,9 +9,8 @@ import {
   Image,
 } from 'react-native';
 import React, {useState, useEffect} from 'react';
-import {db} from '../firebase.config.js';
 import {ref, get, onValue} from 'firebase/database';
-import ButtonImg from './Button_Image';
+import ButtonDynamicImg from '../Components/ButtonDynamicImg';
 
 const FetchData = () => {
   const [URL, setURL] = useState([]);
@@ -34,7 +33,11 @@ const FetchData = () => {
         {URL.map((item, index) => {
           return (
             <View key={index}>
-              <ButtonImg Title={item.Title} IMG={item.IMG} URL={item.URL} />
+              <ButtonDynamicImg
+                Title={item.Title}
+                IMG={item.IMG}
+                URL={item.URL}
+              />
             </View>
           );
         })}

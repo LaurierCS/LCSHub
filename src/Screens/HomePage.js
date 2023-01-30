@@ -1,15 +1,20 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Pressable} from 'react-native';
 import TwitchView from '../Components/TwitchView';
 import ButtonImg from '../Components/ButtonImg';
 
-const HomePage = () => {
+const HomePage = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.twitchWrapper}>
         <TwitchView channel="LaurierCS" offline={false} />
       </View>
-      <ButtonImg />
+      <Pressable
+        onPress={() => {
+          navigation.push('Resources Page');
+        }}>
+        <Text>Click to go to the resources page</Text>
+      </Pressable>
     </View>
   );
 };
