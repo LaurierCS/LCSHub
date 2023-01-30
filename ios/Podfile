@@ -3,8 +3,13 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '12.4'
 install! 'cocoapods', :deterministic_uuids => false
+pod 'react-native-webview', :path => '../node_modules/react-native-webview'
+
 
 target 'LCSApplication' do
+
+    # Pods for test_google_signin
+    pod 'GoogleSignIn'
   config = use_native_modules!
 
   # Flags change depending on the env values.
