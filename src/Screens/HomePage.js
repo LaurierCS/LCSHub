@@ -1,7 +1,6 @@
 import React from 'react';
-import {View, StyleSheet, Pressable} from 'react-native';
+import {View, StyleSheet, Pressable, Text} from 'react-native';
 import TwitchView from '../Components/TwitchView';
-import ButtonImg from '../Components/ButtonImg';
 
 const HomePage = ({navigation}) => {
   return (
@@ -14,6 +13,12 @@ const HomePage = ({navigation}) => {
           navigation.push('Resources Page');
         }}>
         <Text>Click to go to the resources page</Text>
+      </Pressable>
+      <Pressable
+        onPress={() => {
+          navigation.push('Chatroom Login');
+        }}>
+        <Text style={styles.text}>Click to go to the Chatroom Login</Text>
       </Pressable>
     </View>
   );
@@ -48,6 +53,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 12,
   },
+  text:{
+    color:'white'
+  }
 });
 
 export default HomePage;

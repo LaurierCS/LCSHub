@@ -9,10 +9,11 @@ import {
   Image,
 } from 'react-native';
 import React, {useState, useEffect} from 'react';
-import {ref, get, onValue} from 'firebase/database';
+import {ref, get, onValue, getDatabase} from 'firebase/database';
 import ButtonDynamicImg from '../Components/ButtonDynamicImg';
 
 const FetchData = () => {
+  const db = getDatabase();
   const [URL, setURL] = useState([]);
 
   useEffect(() => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, View, Text, StyleSheet, Linking} from 'react-native';
-import FetchData from './Display_Resource';
+// import FetchData from './Display_Resource';
 
 const CustomButton = (props) => {
     return(
