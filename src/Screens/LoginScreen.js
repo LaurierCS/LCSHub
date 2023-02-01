@@ -28,7 +28,7 @@ const LoginScreen = ({navigation}) => {
   }
 
   return (
-    <View>
+    <View style={styles.wrapper}>
       <Text style={styles.header}>LCS Chatroom</Text>
       <View style={styles.loginInfo}>
         <Text style={styles.labels}>Enter your email address</Text>
@@ -70,13 +70,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 30,
     fontSize: 20,
+    color: 'white'
   },
   loginInfo: {
     marginRight: 15,
     marginLeft: 15,
   },
   inputField: {
-    backgroundColor: '#a8aaad',
+    backgroundColor: '#90DBF4',
     paddingTop: 10,
     paddingBottom: 10,
     paddingRight: 10,
@@ -87,9 +88,9 @@ const styles = StyleSheet.create({
   labels: {
     marginTop: 10,
     textDecorationLine: true,
+    color: 'white'
   },
   btnLogin: {
-    backgroundColor: '#a8aaad',
     marginTop: 20,
     paddingTop: 10,
     paddingLeft: 10,
@@ -98,9 +99,9 @@ const styles = StyleSheet.create({
     maxWidth: 100,
     alignSelf: 'center',
     borderRadius: 10,
+    backgroundColor: '#90DBF4'
   },
   btnCreateAccount: {
-    backgroundColor: '#a8aaad',
     marginTop: 20,
     paddingTop: 10,
     paddingLeft: 10,
@@ -109,11 +110,17 @@ const styles = StyleSheet.create({
     maxWidth: 500,
     alignSelf: 'center',
     borderRadius: 10,
+    backgroundColor: '#90DBF4'
   },
   btnText: {
     textAlign: 'center',
     fontSize: 20,
+    
   },
+  wrapper:{
+    backgroundColor: 'black',
+    height: '100%'
+  }
 });
 
 export default LoginScreen;

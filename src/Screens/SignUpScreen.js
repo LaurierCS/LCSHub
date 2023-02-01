@@ -8,7 +8,7 @@ const SignUpScreen = ({navigation}) => {
   const [pass, onChangePass] = useState('');
   const [confirmPass, onChangeConfirmPass] = useState('');
   return (
-    <View>
+    <View style={styles.wrapper}>
       <Text style={styles.header}>Create an LCS Chatroom Account</Text>
       <Text style={styles.labels}>Enter your Email Address</Text>
 
@@ -82,9 +82,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 40,
     fontSize: 20,
+    color: 'white'
   },
   inputField: {
-    backgroundColor: '#a8aaad',
+    backgroundColor: '#90DBF4',
     paddingTop: 10,
     paddingBottom: 10,
     paddingRight: 10,
@@ -94,10 +95,16 @@ const styles = StyleSheet.create({
   labels: {
     marginTop: 10,
     textDecorationLine: true,
+    color: 'white'
   },
   button: {
     textAlign: 'center',
+    backgroundColor: 'white'
   },
+  wrapper: {
+    backgroundColor: 'black',
+    height: '100%'
+  }
 });
 
 export default SignUpScreen;

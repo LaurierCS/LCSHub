@@ -63,7 +63,7 @@ class ChatRoomScreen extends Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.wrapper}>
         <View style={styles.messageBox}>
           <Text style={styles.label}>Chatbox</Text>
           <ScrollView>
@@ -90,22 +90,22 @@ class ChatRoomScreen extends Component {
         <TextInput
           onChangeText={newText => this.setState({message: newText})}
           value={this.state.message}
-          placeholder="Enter message"
-          placeholderTextColor="#000000"
-          style={styles.inputField}
+          placeholder="Enter message..."
+          placeholderTextColor="black"
+          style={[styles.inputField, { borderWidth: 1, borderColor: '#000000' }]}
         />
         <View style={{flexDirection: 'row'}}>
           <Pressable
             style={[styles.btnSendMessage, {flex: 1}]}
             onPress={this.sendMessage}>
-            <Text style={[styles.btnTxt, {justifyContent: 'flex-start'}]}>
+            <Text style={[styles.btnTxt, {justifyContent: 'flex-start', color: 'black'}]}>
               Send Message
             </Text>
           </Pressable>
           <Pressable
             style={[styles.btnSendMessage, {flex: 1}]}
             onPress={this.logout}>
-            <Text style={[styles.btnTxt, {justifyContent: 'flex-end'}]}>
+            <Text style={[styles.btnTxt, {justifyContent: 'flex-end', color: 'black'}]}>
               Logout
             </Text>
           </Pressable>
@@ -117,29 +117,40 @@ class ChatRoomScreen extends Component {
 
 const {height} = Dimensions.get('window');
 const styles = StyleSheet.create({
-  myMsgs: {
-    backgroundColor: '#a8aaad',
-    paddingTop: 10,
-    paddingRight: 10,
-    paddingLeft: 10,
-    paddingBottom: 10,
-    justifyContent: 'space-between',
+  container: {
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'black',
   },
-  msgs: {
-    backgroundColor: '#a8aaad',
-    paddingTop: 10,
-    paddingRight: 10,
-    paddingLeft: 10,
-    paddingBottom: 10,
+  wrapper: {
+    backgroundColor: 'black',
+    height: '100%'
   },
   messageBox: {
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingBottom: 10,
-    paddingLeft: 10,
-    color: '#000000',
+    padding: 10,
+    color: 'white',
     maxHeight: height * 0.6,
     overflow: 'scroll',
+    backgroundColor: '#90DBF4',
+    borderColor: 'black',
+    borderWidth: 1,
+    borderRadius: 12,
+    marginTop: 20
+  },
+  myMsgs: {
+    alignSelf: 'flex-end',
+    backgroundColor: '#90DBF4',
+    padding: 10,
+    borderWidth: 1,
+    borderRadius: 13,
+    marginTop: 20,
+  },
+  msgs: {
+    backgroundColor: '#90DBF4',
+    padding: 10,
+    borderWidth: 1,
+    borderRadius: 13,
+    marginTop: 20,
   },
   myMessage: {
     color: '#000000',
@@ -160,32 +171,30 @@ const styles = StyleSheet.create({
     fontSize: 10,
   },
   inputField: {
-    backgroundColor: '#a8aaad',
-    paddingTop: 10,
-    paddingBottom: 10,
-    paddingRight: 10,
-    paddingLeft: 10,
+    backgroundColor: '#90DBF4',
+    padding: 10,
     marginTop: height * 0.1,
     borderRadius: 10,
+    borderWidth: 1,
+    marginTop: 550
   },
   btnSendMessage: {
-    backgroundColor: '#a8aaad',
+    backgroundColor: '#90DBF4',
     marginTop: 10,
     borderRadius: 10,
-    paddingTop: 10,
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingBottom: 10,
+    padding: 10,
     alignSelf: 'center',
+    borderWidth: 1,
   },
   btnTxt: {
     textAlign: 'center',
     fontSize: 20,
+    color: 'white'
   },
-  label: {
-    fontSize: 20,
-    paddingTop: 20,
-  },
+  text: {
+    color: 'white'
+  }
 });
+
 
 export default ChatRoomScreen;

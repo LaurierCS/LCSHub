@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, Pressable, Text, Button, ScrollView, TouchableOpacity} from 'react-native';
+import {View, StyleSheet, Text, ScrollView, TouchableOpacity, Image} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import TwitchView from '../Components/TwitchView';
 
@@ -17,8 +17,8 @@ const HomePage = ({navigation}) => {
             onPress={() => {
                 navigation.push('Resources Page');
               }}>
-          
-            <Text>Resources</Text>
+            <Image source={require('../Assets/icon_folder.png')} style={styles.image_folder}/>
+            {/* <Text>Resources</Text> */}
           </TouchableOpacity>
           
             {/* CHATROOM BUTTON */}
@@ -37,13 +37,18 @@ const HomePage = ({navigation}) => {
   );
 };
 
+HomePage.navigationOptions = {
+  headerStyle: {
+    backgroundColor: 'pink'
+  }
+};
+
 // styling
 const styles = StyleSheet.create({
   container: {
     width: '100%',
     height: '100%',
-    marginTop: 20,
-    backgroundColor: '#0A0908',
+    backgroundColor: 'black',
   },
   wrapper: {
     flexDirection: 'row',
@@ -70,6 +75,12 @@ const styles = StyleSheet.create({
   },
   text:{
     color:'white'
+  },
+  image_folder:{
+    height: 120,
+    width: 120,
+    marginLeft: 15,
+    marginTop: 10
   }
 });
 
