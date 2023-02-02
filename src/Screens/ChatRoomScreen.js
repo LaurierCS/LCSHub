@@ -63,54 +63,57 @@ class ChatRoomScreen extends Component {
 
   render() {
     return (
-      <View style={styles.wrapper}>
-        <View style={styles.messageBox}>
-          <Text style={styles.label}>Chatbox</Text>
-          <ScrollView>
-            {this.state.chat.map((chat, index) => {
-              console.log(auth.currentUser.email);
-              if (chat.sender === auth.currentUser.email) {
-                return (
-                  <View key={chat.time} style={styles.myMsgs}>
-                    <Text style={styles.myMessage}>{chat.message}</Text>
-                    <Text style={styles.senderIsMe}>Sent by YOU</Text>
-                  </View>
-                );
-              } else {
-                return (
-                  <View key={index} style={styles.msgs}>
-                    <Text style={styles.message}>{chat.message}</Text>
-                    <Text style={styles.sender}>From: {chat.sender}</Text>
-                  </View>
-                );
-              }
-            })}
-          </ScrollView>
+      <ScrollView style={{backgroundColor: 'black'}}>
+        <View style={styles.wrapper}>
+          <View style={styles.messageBox}>
+            <Text style={styles.label}>Chatbox</Text>
+            <ScrollView>
+              {this.state.chat.map((chat, index) => {
+                console.log(auth.currentUser.email);
+                if (chat.sender === auth.currentUser.email) {
+                  return (
+                    <View key={chat.time} style={styles.myMsgs}>
+                      <Text style={styles.myMessage}>{chat.message}</Text>
+                      <Text style={styles.senderIsMe}>Sent by You</Text>
+                    </View>
+                  );
+                } else {
+                  return (
+                    <View key={index} style={styles.msgs}>
+                      <Text style={styles.message}>{chat.message}</Text>
+                      <Text style={styles.sender}>From: {chat.sender}</Text>
+                    </View>
+                  );
+                }
+              })}
+            </ScrollView>
+          </View>
+          <TextInput
+            onChangeText={newText => this.setState({message: newText})}
+            value={this.state.message}
+            placeholder="Enter message..."
+            placeholderTextColor="black"
+            style={[styles.inputField, { borderWidth: 1, borderColor: '#000000' }]}
+          />
+          <View style={{flexDirection: 'row'}}>
+            <Pressable
+              style={[styles.btnSendMessage, {flex: 1}]}
+              onPress={this.sendMessage}>
+              <Text style={[styles.btnTxt, {justifyContent: 'flex-start', color: 'black'}]}>
+                Send Message
+              </Text>
+            </Pressable>
+            <Pressable
+              style={[styles.btnSendMessage, {flex: 1}]}
+              onPress={this.logout}>
+              <Text style={[styles.btnTxt, {justifyContent: 'flex-end', color: 'black'}]}>
+                Logout
+              </Text>
+            </Pressable>
+          </View>
         </View>
-        <TextInput
-          onChangeText={newText => this.setState({message: newText})}
-          value={this.state.message}
-          placeholder="Enter message..."
-          placeholderTextColor="black"
-          style={[styles.inputField, { borderWidth: 1, borderColor: '#000000' }]}
-        />
-        <View style={{flexDirection: 'row'}}>
-          <Pressable
-            style={[styles.btnSendMessage, {flex: 1}]}
-            onPress={this.sendMessage}>
-            <Text style={[styles.btnTxt, {justifyContent: 'flex-start', color: 'black'}]}>
-              Send Message
-            </Text>
-          </Pressable>
-          <Pressable
-            style={[styles.btnSendMessage, {flex: 1}]}
-            onPress={this.logout}>
-            <Text style={[styles.btnTxt, {justifyContent: 'flex-end', color: 'black'}]}>
-              Logout
-            </Text>
-          </Pressable>
-        </View>
-      </View>
+      </ScrollView>
+      
     );
   }
 }
@@ -124,7 +127,6 @@ const styles = StyleSheet.create({
   },
   wrapper: {
     backgroundColor: 'black',
-    height: '100%'
   },
   messageBox: {
     padding: 10,
@@ -176,7 +178,6 @@ const styles = StyleSheet.create({
     marginTop: height * 0.1,
     borderRadius: 10,
     borderWidth: 1,
-    marginTop: 550
   },
   btnSendMessage: {
     backgroundColor: '#90DBF4',

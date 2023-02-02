@@ -29,24 +29,25 @@ const LoginScreen = ({navigation}) => {
 
   return (
     <View style={styles.wrapper}>
-      <Text style={styles.header}>LCS Chatroom</Text>
+      <Text style={styles.header}>Welcome to the LaurierCS Chatroom!</Text>
+      <Text style={{fontSize: 16, color:'white', textAlign:'center'}}>Login to your account</Text>
       <View style={styles.loginInfo}>
-        <Text style={styles.labels}>Enter your email address</Text>
+        <Text style={styles.labels}>Email</Text>
         <TextInput
           style={styles.inputField}
           onChangeText={onChangeEmail}
           value={email}
           autoCapitalize="none"
-          placeholder="Enter your email"
+          placeholder="Email"
           placeholderTextColor="#000000"
         />
-        <Text style={styles.labels}>Enter your email address</Text>
+        <Text style={styles.labels}>Password</Text>
         <TextInput
           style={styles.inputField}
           onChangeText={onChangePassword}
           value={password}
           autoCapitalize="none"
-          placeholder="Enter your password"
+          placeholder="Password"
           placeholderTextColor="#000000"
           secureTextEntry={true}
         />
@@ -59,7 +60,7 @@ const LoginScreen = ({navigation}) => {
         onPress={() => {
           navigation.push('Chatroom Sign Up');
         }}>
-        <Text styles={styles.btnText}>Click to Create an Account</Text>
+        <Text style={{color:'#616161'}}>Don't have an account?<Text style={{color:'#D9D9D9'}}> Create Now</Text></Text>
       </Pressable>
     </View>
   );
@@ -77,18 +78,21 @@ const styles = StyleSheet.create({
     marginLeft: 15,
   },
   inputField: {
-    backgroundColor: '#90DBF4',
+    backgroundColor: '#FEFCFC',
+    maxWidth: 310,
     paddingTop: 10,
     paddingBottom: 10,
     paddingRight: 10,
     paddingLeft: 10,
+    marginLeft: 35,
     marginTop: 10,
     borderRadius: 10,
   },
   labels: {
     marginTop: 10,
-    textDecorationLine: true,
-    color: 'white'
+    color: '#A1D9F4',
+    fontSize: 17,
+    marginLeft: 40
   },
   btnLogin: {
     marginTop: 20,
@@ -96,7 +100,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
     paddingBottom: 10,
-    maxWidth: 100,
+    width: 310,
     alignSelf: 'center',
     borderRadius: 10,
     backgroundColor: '#90DBF4'
@@ -110,7 +114,7 @@ const styles = StyleSheet.create({
     maxWidth: 500,
     alignSelf: 'center',
     borderRadius: 10,
-    backgroundColor: '#90DBF4'
+    color: 'white'
   },
   btnText: {
     textAlign: 'center',
