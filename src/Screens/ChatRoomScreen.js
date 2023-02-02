@@ -66,7 +66,6 @@ class ChatRoomScreen extends Component {
       <ScrollView style={{backgroundColor: 'black'}}>
         <View style={styles.wrapper}>
           <View style={styles.messageBox}>
-            <Text style={styles.label}>Chatbox</Text>
             <ScrollView>
               {this.state.chat.map((chat, index) => {
                 console.log(auth.currentUser.email);
@@ -91,11 +90,11 @@ class ChatRoomScreen extends Component {
           <TextInput
             onChangeText={newText => this.setState({message: newText})}
             value={this.state.message}
-            placeholder="Enter message..."
-            placeholderTextColor="black"
+            placeholder="Your Message"
+            placeholderTextColor="#5E5E5E"
             style={[styles.inputField, { borderWidth: 1, borderColor: '#000000' }]}
           />
-          <View style={{flexDirection: 'row'}}>
+          <View style={{flexDirection: 'row', justifyContent:'space-evenly'}}>
             <Pressable
               style={[styles.btnSendMessage, {flex: 1}]}
               onPress={this.sendMessage}>
@@ -123,7 +122,7 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     height: '100%',
-    backgroundColor: 'black',
+    backgroundColor: 'pink',
   },
   wrapper: {
     backgroundColor: 'black',
@@ -133,26 +132,28 @@ const styles = StyleSheet.create({
     color: 'white',
     maxHeight: height * 0.6,
     overflow: 'scroll',
-    backgroundColor: '#90DBF4',
-    borderColor: 'black',
+    backgroundColor: 'black ',
+    borderColor: '#A1D9F4',
     borderWidth: 1,
     borderRadius: 12,
     marginTop: 20
   },
   myMsgs: {
     alignSelf: 'flex-end',
-    backgroundColor: '#90DBF4',
+    backgroundColor: '#F5F5F5',
     padding: 10,
     borderWidth: 1,
     borderRadius: 13,
     marginTop: 20,
+    maxWidth: 220
   },
   msgs: {
     backgroundColor: '#90DBF4',
     padding: 10,
     borderWidth: 1,
     borderRadius: 13,
-    marginTop: 20,
+    marginTop: 5,
+    maxWidth: 220
   },
   myMessage: {
     color: '#000000',
@@ -180,7 +181,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   btnSendMessage: {
-    backgroundColor: '#90DBF4',
+    backgroundColor: '#F5F5F5',
     marginTop: 10,
     borderRadius: 10,
     padding: 10,
@@ -190,7 +191,8 @@ const styles = StyleSheet.create({
   btnTxt: {
     textAlign: 'center',
     fontSize: 20,
-    color: 'white'
+    color: 'white',
+    
   },
   text: {
     color: 'white'
