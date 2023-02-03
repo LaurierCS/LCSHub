@@ -21,7 +21,7 @@ class ChatRoomScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      chat: [{message: 'messageasdas', sender: 'lol'}],
+      chat: [{message: 'Welcome to the LCS Hub Chatroom!', sender: 'LCS Team'}],
       message: '',
     };
     this.sendMessage = this.sendMessage.bind(this);

@@ -8,26 +8,24 @@ const HomePage = ({navigation}) => {
     <SafeAreaView style={styles.container}>
       <ScrollView >
         <View style={styles.twitchWrapper}>
-          <TwitchView channel="LaurierCS" offline={false} />
+          <TwitchView channel="LaurierCS" offline={false}/>
         </View>
         {/* RESOURCE BUTTON */}
-        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between', marginLeft: 20, marginRight: 20, marginTop: 25}}>
+        <View style={{flexDirection: 'column', justifyContent: 'space-between', marginLeft: 20, marginRight: 20, marginTop: 25}}>
           <TouchableOpacity 
-            style={styles.wrapper} 
             onPress={() => {
                 navigation.push('Resources Page');
               }}>
-            <Image source={require('../Assets/icon_folder.png')} style={styles.image_folder}/>
+            <Image source={require('../Assets/resources.png')} style={styles.resource}/>
             {/* <Text>Resources</Text> */}
           </TouchableOpacity>
           
             {/* CHATROOM BUTTON */}
-            <TouchableOpacity 
-            style={styles.wrapper} 
+            <TouchableOpacity  
             onPress={() => {
                 navigation.push('Chatroom Login');
               }}>
-            <Text>Chatroom</Text>
+             <Image source={require('../Assets/livechat.png')} style={styles.chatroom}/>
           </TouchableOpacity>
         </View>
         
@@ -37,12 +35,6 @@ const HomePage = ({navigation}) => {
   );
 };
 
-HomePage.navigationOptions = {
-  headerStyle: {
-    backgroundColor: 'pink'
-  }
-};
-
 // styling
 const styles = StyleSheet.create({
   container: {
@@ -50,23 +42,10 @@ const styles = StyleSheet.create({
     height: '100%',
     backgroundColor: 'black',
   },
-  wrapper: {
-    flexDirection: 'row',
-    height: 150,
-    width: 170,
-    padding: 16,
-    marginTop: 20,
-    borderColor: 'black',
-    backgroundColor: '#90DBF4',
-    borderWidth: 1,
-    borderRadius: 13,
-  },
   twitchWrapper: {
-    flex: 1,
     maxWidth: 380,
     height: 250,
-    padding: 16,
-    marginTop: 20,
+    padding: 6,
     marginLeft: 20,
     borderColor: 'black',
     backgroundColor: '#90DBF4',
@@ -76,11 +55,17 @@ const styles = StyleSheet.create({
   text:{
     color:'white'
   },
-  image_folder:{
-    height: 120,
-    width: 120,
-    marginLeft: 15,
-    marginTop: 10
+  resource:{
+    maxWidth: 375,
+    maxHeight: 350,
+    borderRadius: 12,
+
+  },
+  chatroom:{
+    maxWidth: 375,
+    maxHeight: 350,
+    borderRadius: 12,
+    marginTop: 25
   }
 });
 
