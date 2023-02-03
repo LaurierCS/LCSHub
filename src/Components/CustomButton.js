@@ -14,11 +14,6 @@ const CustomButton = (props) => {
     )
 }
 
-function onClick(URL) {
-    //what to do on button click
-    Linking.openURL(URL);
-}
-
 export default CustomButton;
 
 const styles = StyleSheet.create({
@@ -27,15 +22,15 @@ const styles = StyleSheet.create({
     },
 
     button :{
-        width : 160,
-        height: 40,
+        width : 230,
+        height: 45,
         borderRadius : 10,
         padding : 10,
         backgroundColor : 'black',
     },
 
     buttonText :{
-        color : '#00D1FF',
+        color : '#90DBF4',
         alignItems : 'center',
         textAlign : 'center'
     }

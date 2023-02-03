@@ -19,7 +19,7 @@ const SignUpScreen = ({navigation}) => {
         style={styles.inputField}
         autoCapitalize="none"
         placeholder="Enter your email"
-        placeholderTextColor="#C4C4C4"
+        placeholderTextColor="black"
       />
       <Text style={styles.labels}>Password</Text>
       <TextInput
@@ -28,7 +28,7 @@ const SignUpScreen = ({navigation}) => {
         style={styles.inputField}
         autoCapitalize="none"
         placeholder="Enter your password"
-        placeholderTextColor="#C4C4C4"
+        placeholderTextColor="black"
         secureTextEntry={true}
       />
       <Text style={styles.labels}>Confirm Password</Text>
@@ -38,7 +38,7 @@ const SignUpScreen = ({navigation}) => {
         style={styles.inputField}
         autoCapitalize="none"
         placeholder="Confirm your password"
-        placeholderTextColor="#C4C4C4"
+        placeholderTextColor="black"
         secureTextEntry={true}
       />
 
@@ -73,7 +73,7 @@ const SignUpScreen = ({navigation}) => {
     }
   }}
 >
-  <Text style={{fontWeight: 'bold', fontSize: 20,textAlign: 'center', marginTop: 15}}>Create Account</Text>
+  <Text style={{fontWeight: 'bold', fontSize: 20,textAlign: 'center', marginTop: 10}}>Create Account</Text>
 </Pressable>
 
     </View>

@@ -5,7 +5,7 @@ import LoginScreen from './Screens/LoginScreen';
 import SignUpScreen from './Screens/SignUpScreen';
 import ChatRoomScreen from './Screens/ChatRoomScreen';
 import HomePage from './Screens/HomePage';
-import MainResourcesPage from './Screens/MainResourcesPage';
+import Resource from './Screens/ResourcesPage';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Stack = createNativeStackNavigator();
@@ -24,7 +24,7 @@ const App = () => {
               }
             }}
           />
-          <Stack.Screen name="Resources Page" component={MainResourcesPage} options={{
+          <Stack.Screen name="Resources Page" component={Resource} options={{
             title: 'Chatroom - LCS Hub',
             headerTintColor: 'white',
             headerStyle: {

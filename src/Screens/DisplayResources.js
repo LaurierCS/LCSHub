@@ -1,16 +1,8 @@
-import {
-  View,
-  Text,
-  FlatList,
-  StyleSheet,
-  Pressable,
-  Linking,
-  TouchableOpacity,
-  Image,
-} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import {ref, get, onValue, getDatabase} from 'firebase/database';
 import ButtonDynamicImg from '../Components/ButtonDynamicImg';
+import { ScrollView } from 'react-native-web';
 
 const FetchData = () => {
   const db = getDatabase();
@@ -33,7 +25,7 @@ const FetchData = () => {
       <Text>
         {URL.map((item, index) => {
           return (
-            <View key={index}>
+            <View style={LCS_Style.button} key={index}>
               <ButtonDynamicImg
                 Title={item.Title}
                 IMG={item.IMG}
@@ -50,6 +42,13 @@ const FetchData = () => {
 const LCS_Style = StyleSheet.create({
   text: {
     color: 'white',
+  },
+
+  button :{
+    marginTop : 10,
+    marginRight : 10,
+    flexDirection : 'col',
+    alignItems : 'center',
   },
 });
 

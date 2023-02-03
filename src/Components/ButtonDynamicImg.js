@@ -30,11 +30,12 @@ const LCS_Style = StyleSheet.create({
   },
 
   box: {
-    paddingLeft: 10,
-    backgroundColor: '#00D1FF',
+    backgroundColor: '#90DBF4',
     height: 270,
-    width: 180,
-    borderRadius: 10,
+    width: 260,
+    borderRadius: 20,
+    marginTop : 20,
+    alignItems : 'center',
   },
 
   img: {
@@ -44,6 +45,10 @@ const LCS_Style = StyleSheet.create({
   },
 
   buttonText: {
-    color: '#00D1FF',
+    color: '#90DBF4',
   },
+
+  CustomButton :{
+
+  }
 });
